@@ -187,6 +187,8 @@ You have 7 options to style the component.
 |`defaultValue`|The value of the default item.|`any`||No
 |`defaultNull`|This sets the choice to null which should be used with `placeholder`|`bool`|`true`|No
 |`placeholder`|Default text to be shown to the user which must be used with `defaultNull`|`string`|'Select an item'|No
+|`iconUp`| icon(DropDown Up Icon).|`Object`
+|`iconDown`| icon(DropDown Down Icon).|`Object`
 |`dropDownMaxHeight`|Height of the dropdown box.|`number`|`150`|No
 |`style`|Additional styles for the picker.|`object`|`{}`|No
 |`containerStyle`|Additional styles for the container view.|`object`|`{}`|No

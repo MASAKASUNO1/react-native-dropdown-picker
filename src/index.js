@@ -93,7 +93,7 @@ class DropDownPicker extends React.Component {
         return (
             <View style={[this.props.containerStyle]}>
                 <TouchableOpacity onLayout={(event) => { this.getLayout(event.nativeEvent.layout) }} disabled={disabled} onPress={() => this.toggle()} activeOpacity={1} style={[this.props.style, {flexDirection: 'row', flex: 1}]}>
-                    <View style={[styles.dropDown, styles.dropDownDisplay, this.state.visible && styles.noBottomLeftRadius]}>
+                    <View style={[styles.dropDownBase, styles.dropDownDisplay, this.state.visible && styles.noBottomLeftRadius]}>
                         <Text style={[this.props.labelStyle, {opacity}]}>{label}</Text>
                     </View>
                     {this.props.showArrow && (
@@ -101,9 +101,9 @@ class DropDownPicker extends React.Component {
                             <View style={[this.props.arrowStyle, {opacity}]}>
                             {
                                 ! this.state.visible ? (
-                                    this.props.customArrowUp ?? <Feather name="chevron-down" size={this.props.arrowSize} />
+                                    this.props.customArrowUp ?? this.props.iconDown
                                 ) : (
-                                    this.props.customArrowDown ?? <Feather name="chevron-up" size={this.props.arrowSize} />
+                                    this.props.customArrowDown ?? this.props.iconUp
                                 )
                             }
                             </View>
@@ -136,6 +136,8 @@ class DropDownPicker extends React.Component {
 
 DropDownPicker.defaultProps = {
     defaultNull: false,
+    iconUp: null,
+    iconDown: null,
     placeholder: 'Select an item',
     dropDownMaxHeight: 150,
     style: {},
@@ -191,12 +193,29 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: '#fff',
-        borderTopRightRadius: 5,
-        borderTopLeftRadius: 5,
-        borderBottomRightRadius: 5,
-        borderBottomLeftRadius: 5,
-        borderBottomWidth: 2,
-        borderBottomColor: '#dfdfdf',
+        borderTopRightRadius: 6,
+        borderTopLeftRadius: 6,
+        borderBottomRightRadius: 6,
+        borderBottomLeftRadius: 6,
+        borderTopWidth: 1.0,
+        borderRightWidth: 1.0,
+        borderBottomWidth: 1.0,
+        borderColor: '#B7B7B7',
+        borderStyle: 'solid'
+  },
+    dropDownBase: {
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: '#fff',
+        borderTopRightRadius: 6,
+        borderTopLeftRadius: 6,
+        borderBottomRightRadius: 6,
+        borderBottomLeftRadius: 6,
+        borderTopWidth: 1.0,
+        borderLeftWidth: 1.0,
+        borderBottomWidth: 1.0,
+        borderColor: '#B7B7B7',
+        borderStyle: 'solid'
     },
     dropDownDisplay: {
         flexDirection: 'row',
